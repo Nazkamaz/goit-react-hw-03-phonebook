@@ -1,0 +1,11 @@
+.inputStyles {
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border-color: black;
+}
+.buttonDelete {
+  margin: 10px;
+  border-radius: 4px;
+  border-color: black;
+}
