@@ -16,6 +16,27 @@ class App extends Component{
     ],
   filter: '',
   };
+  
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const nextContacts = this.state.contacts;
+    const prevContacts = prevState.contacts;
+
+    if (nextContacts !== prevContacts) {
+      localStorage.setItem('contacts', JSON.stringify(nextContacts));
+      // console.log(prevProps);
+      // console.log(prevState);
+      // console.log('localStorage were been manipulated')
+    }
+  }
 
 addContact = newContact => {
     this.state.contacts.some(({ name }) => name === newContact.name)
